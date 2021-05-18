@@ -51,7 +51,7 @@ public class AppConfig implements WebMvcConfigurer {
     @Bean
     public LocalEntityManagerFactoryBean entityManagerFactory() {
         LocalEntityManagerFactoryBean entityManagerFactoryBean = new LocalEntityManagerFactoryBean();
-        entityManagerFactoryBean.setPersistenceUnitName("test_spring_hibernate_ipz");
+        entityManagerFactoryBean.setPersistenceUnitName("test_spring_hibernate");
         return entityManagerFactoryBean;
     }
     @Bean

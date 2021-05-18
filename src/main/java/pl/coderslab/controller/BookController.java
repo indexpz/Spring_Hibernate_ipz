@@ -13,14 +13,14 @@ import pl.coderslab.service.BookService;
 
 @Controller
 public class BookController {
+
     private final BookDao bookDao;
 
-    private BookService bookService;
 
     @Autowired
-    public BookController(BookDao bookDao, BookService bookService) {
+    public BookController(BookDao bookDao) {
         this.bookDao = bookDao;
-        this.bookService = bookService;
+
     }
 
     @RequestMapping("/book/add")

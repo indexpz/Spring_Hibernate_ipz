@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS test_spring_hibernate_ipz CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS test_spring_hibernate CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 SHOW DATABASES;
-USE test_spring_hibernate_ipz;
+USE test_spring_hibernate;
 DROP TABLE books;
 CREATE TABLE books
 (
@@ -12,5 +12,7 @@ CREATE TABLE books
     PRIMARY KEY(id)
 );
 
+DROP DATABASE test_spring_hibernate;
 
+show tables ;
 

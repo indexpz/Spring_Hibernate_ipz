@@ -6,16 +6,14 @@ import pl.coderslab.model.Book;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 
 @Repository
 @Transactional
-public class BookDao implements BookService {
+public class BookDao  {
 
-    private final Map<Long, Book> books = new LinkedHashMap<>();
+//    private final List<Book> books = new ArrayList<>();
 
     @PersistenceContext
     EntityManager entityManager;
@@ -30,17 +28,17 @@ public class BookDao implements BookService {
 //        return Optional.ofNullable(books.get(id));
 //    }
 
-    @Override
+
     public Book findById(long id) {
         return entityManager.find(Book.class, id);
     }
 
-    @Override
+
     public void update(Book book) {
         entityManager.merge(book);
     }
 
-@Override
+
     public void delete(Book book) {
         entityManager.remove(entityManager.contains(book) ?
                 book : entityManager.merge(book)); }
