@@ -51,7 +51,7 @@ public class AppConfig implements WebMvcConfigurer {
     @Bean
     public LocalEntityManagerFactoryBean entityManagerFactory() {
         LocalEntityManagerFactoryBean entityManagerFactoryBean = new LocalEntityManagerFactoryBean();
-        entityManagerFactoryBean.setPersistenceUnitName("bookstorePersistenceUnit");
+        entityManagerFactoryBean.setPersistenceUnitName("test_spring_hibernate_ipz");
         return entityManagerFactoryBean;
     }
     @Bean
@@ -59,4 +59,6 @@ public class AppConfig implements WebMvcConfigurer {
         JpaTransactionManager jpaTransactionManager = new JpaTransactionManager(entityManagerFactory);
         return jpaTransactionManager;
     }
+
+
 }

@@ -15,6 +15,7 @@
     <title>Title</title>
 </head>
 <body>
-<p>test</p>
+<p><a href="/book/add"><button>Add book</button></a> </p>
+<p><a href="/book/get/{id}"></a> <form><input type="number" name="id"><input type="submit" value="Show book"></form></p>
 </body>
 </html>
