@@ -1,35 +1,42 @@
 package pl.coderslab.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.server.ResponseStatusException;
 import pl.coderslab.model.Book;
+import pl.coderslab.model.Publisher;
 import pl.coderslab.service.BookDao;
-import pl.coderslab.service.BookService;
+import pl.coderslab.service.PublisherDao;
+
+import java.util.List;
 
 @Controller
 public class BookController {
 
     private final BookDao bookDao;
-
+    private final PublisherDao publisherDao;
+    private final List<Publisher> publishers;
 
     @Autowired
-    public BookController(BookDao bookDao) {
+    public BookController(BookDao bookDao, PublisherDao publisherDao, List<Publisher> publishers) {
         this.bookDao = bookDao;
-
+        this.publisherDao = publisherDao;
+        this.publishers = publishers;
     }
 
     @RequestMapping("/book/add")
     @ResponseBody
     public String hello() {
+        Publisher publisher = new Publisher();
+        publisher.setName("publisher");
+        publisherDao.savePublisher(publisher);
         Book book = new Book();
         book.setTitle("Thinking in Java");
-        book.setAuthor("Bruce Eckel");
+//        book.setAuthor("Bruce Eckel");
         book.setRating(4);
+        book.setPublishers(publishers);
         book.setDescription("Myśl w Java");
         bookDao.saveBook(book);
         return "Id dodanej książki to:" + book.getId();
@@ -53,7 +60,7 @@ public class BookController {
 
     @RequestMapping("/book/update/{id}/{title}")
     @ResponseBody
-    public String updateBook(@PathVariable long id, @PathVariable String title ) {
+    public String updateBook(@PathVariable long id, @PathVariable String title) {
         Book book = bookDao.findById(id);
         book.setTitle(title);
         bookDao.update(book);

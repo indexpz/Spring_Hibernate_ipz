@@ -1,8 +1,8 @@
 CREATE DATABASE IF NOT EXISTS test_spring_hibernate CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 SHOW DATABASES;
 USE test_spring_hibernate;
-DROP TABLE books;
-CREATE TABLE books
+DROP TABLE test;
+CREATE TABLE test
 (
     id INT AUTO_INCREMENT,
     title VARCHAR(100),
@@ -14,5 +14,5 @@ CREATE TABLE books
 
 DROP DATABASE test_spring_hibernate;
 
-show tables ;
+SHOW TABLES;
 

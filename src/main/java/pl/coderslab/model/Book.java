@@ -1,26 +1,30 @@
 package pl.coderslab.model;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.util.List;
+
 
 @Entity
 @Table(name = "books")
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column(name = "title", length = 100, nullable = false)
-    String title;
+    private String title;
 
-    @Column(name = "author", length = 100, nullable = false)
-    String author;
+//    @Column(name = "author", length = 100, nullable = false)
+//    String author;
 
     @Column(scale=2, precision=4, nullable = true)
-    int rating;
+    private int rating;
 
     @Column(length = 255, nullable = true)
-    String description;
+    private String description;
+
+    @OneToMany
+    private List<Publisher> publishers;
 
 //    @Column(name = "created_on")
 //    private LocalDateTime createdOn;
@@ -59,13 +63,13 @@ public class Book {
         this.title = title;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
+//    public String getAuthor() {
+//        return author;
+//    }
+//
+//    public void setAuthor(String author) {
+//        this.author = author;
+//    }
 
     public int getRating() {
         return rating;
@@ -81,5 +85,24 @@ public class Book {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Publisher> getPublishers() {
+        return publishers;
+    }
+
+    public void setPublishers(List<Publisher> publishers) {
+        this.publishers = publishers;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", rating=" + rating +
+                ", description='" + description + '\'' +
+                ", publishers=" + publishers +
+                '}';
     }
 }
