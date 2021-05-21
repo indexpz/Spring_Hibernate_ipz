@@ -94,5 +94,32 @@
             <version>2.3.0</version>
         </dependency>
 
+
+
+        <!--logger w BookController-->
+        <dependency>
+            <groupId>com.javiersc.logger</groupId>
+            <artifactId>logger</artifactId>
+            <version>0.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+
+
     </dependencies>
 </project>

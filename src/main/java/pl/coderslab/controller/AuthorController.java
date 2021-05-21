@@ -1,5 +1,6 @@
 package pl.coderslab.controller;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,13 +9,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import pl.coderslab.model.Author;
 import pl.coderslab.service.AuthorDao;
 
+import java.util.List;
+
 @Controller
 public class AuthorController {
 
     private final AuthorDao authorDao;
-@Autowired
-    public AuthorController(AuthorDao authorDao) {
+    private final Logger logger;
+
+    @Autowired
+    public AuthorController(AuthorDao authorDao, Logger logger) {
         this.authorDao = authorDao;
+        this.logger = logger;
     }
 
     @RequestMapping("/author/get/{id}")
@@ -27,7 +33,7 @@ public class AuthorController {
 
     @RequestMapping("/author/update/{id}/{title}")
     @ResponseBody
-    public String updateAuthor(@PathVariable long id, @PathVariable String firstName, String lastName ) {
+    public String updateAuthor(@PathVariable long id, @PathVariable String firstName, String lastName) {
         Author author = authorDao.findById(id);
         author.setFirstName(firstName);
         author.setLastName(lastName);
@@ -42,5 +48,14 @@ public class AuthorController {
         authorDao.delete(author);
         return "deleted";
     }
+
+    @RequestMapping("/author/all")
+    @ResponseBody
+    public String findAll() {
+        List<Author> allAuthors = authorDao.findAll();
+        allAuthors.forEach(author -> logger.info(author.toString()));
+        return "findAllAuthors";
+    }
+
 
 }

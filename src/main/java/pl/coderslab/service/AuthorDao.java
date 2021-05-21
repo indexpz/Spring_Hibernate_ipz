@@ -7,7 +7,9 @@ import pl.coderslab.model.Book;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Repository
 @Transactional
@@ -30,5 +32,10 @@ public class AuthorDao {
 
     public void delete(Author author){
         entityManager.remove(entityManager.contains(author)? author : entityManager.merge(author));
+    }
+
+    public List<Author> findAll(){
+        Query query = entityManager.createQuery("SELECT author FROM Author author");
+        return query.getResultList();
     }
 }

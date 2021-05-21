@@ -1,5 +1,6 @@
 package pl.coderslab.controller;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,14 +9,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import pl.coderslab.model.Publisher;
 import pl.coderslab.service.PublisherDao;
 
+import java.util.List;
+
 @Controller
 public class PublisherController {
 
     private final PublisherDao publisherDao;
+    private final Logger logger;
 
     @Autowired
-    public PublisherController(PublisherDao publisherDao) {
+    public PublisherController(PublisherDao publisherDao, Logger logger) {
         this.publisherDao = publisherDao;
+        this.logger = logger;
     }
 
 
@@ -42,6 +47,14 @@ public class PublisherController {
         Publisher publisher = publisherDao.findById(id);
         publisherDao.delete(publisher);
         return "deleted";
+    }
+
+    @RequestMapping("/publisher/all")
+    @ResponseBody
+    public String findAllPublishers() {
+        List<Publisher> allPublishers = publisherDao.findAll();
+        allPublishers.forEach(publisher -> logger.info(publisher.toString()));
+        return "findAllPublishers";
     }
 
 }
