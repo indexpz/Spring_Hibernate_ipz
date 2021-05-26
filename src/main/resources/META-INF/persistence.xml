@@ -10,16 +10,13 @@
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="coderslab"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="javax.persistence.schema-generation.database.action" value="none"/>
-
-<!--            <property name="javax.persistence.sql-load-script-source" value="META-INF/sql/data.sql"/>-->
-
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <!--            <property name="hibernate.hbm2ddl.auto" value="update"/>-->
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
-
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL57Dialect"/>
-            <property name="hibernate.connection.characterEncoding" value="utf8"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.MySQL8Dialect" />
+            <property name="hibernate.connection.characterEncoding" value="utf8" />
         </properties>
     </persistence-unit>
 </persistence>
