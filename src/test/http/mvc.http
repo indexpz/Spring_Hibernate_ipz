@@ -1,0 +1,36 @@
+### Pobieranie strony z formularzem do utworzenia obiektu Person
+
+GET localhost:8080/create-person
+
+### Żądanie tworzące obiekt Person
+
+POST localhost:8080/create-person
+Content-Type: application/x-www-form-urlencoded
+
+login=wojtek2&email=abudabu2&password=s3cr3t2
+
+### -----------
+
+### SPRING FORM: Pobieranie strony z formularzem do utworzenia obiektu Person
+
+GET localhost:8080/create-person-with-spring-form
+
+### SPRING FORM: Żądanie tworzące obiekt Person
+
+POST localhost:8080/create-person-with-spring-form
+Content-Type: application/x-www-form-urlencoded
+
+login=wojtek3&email=abudabu3&password=s3cr3t3
+
+### ---
+
+### Students
+
+GET localhost:8080/create-student
+
+###
+
+POST localhost:8080/create-student
+Content-Type: application/x-www-form-urlencoded
+
+firstName=abc&firstName=bb&firstName=agagatga&lastName=abc&gender=Bocian&country=Polska&notes=abc akjalgajg agkljagla&mailingList=true&programmingSkills=Java&programmingSkills=Python&hobbies=Java&hobbies=CodersLab&hobbies=lubieswojebłędy&pozdrawiamAdmina=drop database;

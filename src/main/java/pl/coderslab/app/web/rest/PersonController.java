@@ -1,8 +1,6 @@
 package pl.coderslab.app.web.rest;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.app.domain.dao.PersonDao;
 import pl.coderslab.app.domain.model.Person;
 import pl.coderslab.app.domain.model.PersonDetails;
@@ -55,4 +53,6 @@ public class PersonController {
                 .map(Person::toString)
                 .collect(Collectors.joining("\n"));
     }
+
+
 }

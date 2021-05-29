@@ -1,7 +1,9 @@
 package pl.coderslab.app.domain.dao;
 
 import org.springframework.stereotype.Repository;
+import pl.coderslab.app.domain.model.Author;
 import pl.coderslab.app.domain.model.Book;
+import pl.coderslab.app.domain.model.Publisher;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -31,7 +33,39 @@ public class BookDao {
         em.remove((em.contains(entity) ? entity : em.merge(entity)));
     }
 
-    public List<Book> findAll(){
+    public List<Book> findAll() {
         return em.createQuery("SELECT b from Book b", Book.class).getResultList();
+    }
+
+    public List<Book> findAllByRating(int rating) {
+        return em.createQuery("SELECT x FROM Book x WHERE x.rating = :rating", Book.class)
+                .setParameter("rating", rating)
+                .getResultList();
+    }
+
+    public List<Book> findAllByPublisher() {
+        return em.createQuery("SELECT b FROM Book b JOIN b.publisher", Book.class).getResultList();
+    }
+
+    public List<Book> findAllByPublisherIsNotNull(){
+        return em.createQuery("SELECT b FROM Book b WHERE b.publisher IS NOT NULL", Book.class).getResultList();
+    }
+
+    public List <Book> findAllByPublisher(Publisher publisher){
+        return em.createQuery("SELECT b FROM Book b where b.publisher = :publisher", Book.class)
+                .setParameter("publisher", publisher)
+                .getResultList();
+    }
+
+    public List <Book> findAllByPublisher(Long publisherId){
+        return em.createQuery("SELECT b FROM Book b where b.publisher.id = :publisherId",Book.class)
+                .setParameter("publisherId", publisherId)
+                .getResultList();
+    }
+
+    public List<Book> findAllByAuthor(Author author){
+        return em.createQuery("SELECT b FROM Book b join fetch b.authors where :author member b.authors", Book.class)
+                .setParameter("author", author)
+                .getResultList();
     }
 }

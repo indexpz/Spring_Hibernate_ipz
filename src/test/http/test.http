@@ -1,0 +1,77 @@
+### Testy książki
+
+### Dodajemy dwa razy autora, aby był jakiś dla książki
+GET localhost:8080/authors/add
+
+###
+
+GET localhost:8080/authors/add
+
+###
+
+GET localhost:8080/books/add
+
+###
+
+GET localhost:8080/books/get
+
+###
+
+GET localhost:8080/books/edit
+
+###
+
+GET localhost:8080/books/delete
+
+### Testy autora
+
+GET localhost:8080/authors/add
+
+###
+
+GET localhost:8080/authors/get
+
+###
+
+GET localhost:8080/authors/edit
+
+###
+
+GET localhost:8080/authors/delete
+
+### Test wydawcy
+
+GET localhost:8080/publishers/add
+
+###
+
+GET localhost:8080/publishers/get
+
+###
+
+GET localhost:8080/publishers/edit
+
+###
+
+GET localhost:8080/publishers/delete
+
+### Test persona
+
+GET localhost:8080/persons/add
+
+###
+
+GET localhost:8080/persons/get
+
+###
+
+GET localhost:8080/persons/edit
+
+###
+
+GET localhost:8080/persons/delete
+
+
+###
+
+GET localhost:8080/books/all
