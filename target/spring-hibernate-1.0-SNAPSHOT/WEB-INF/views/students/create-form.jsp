@@ -20,12 +20,15 @@
     <div><label>Imię: <form:input path="firstName"/></label></div>
     <div><label>Naswisko: <form:input path="lastName"/></label></div>
     <div><label>Płeć:</label></div>
-    <div><label>Mężczyzna <form:radiobutton path="gender" value="M"/></label></div>
-    <div><label>Kobieta <form:radiobutton path="gender" value="K"/></label></div>
+    <div><label>Mężczyzna <form:radiobutton path="gender" value="Male"/></label></div>
+    <div><label>Kobieta <form:radiobutton path="gender" value="Female"/></label></div>
     <div><label>Państwo:<form:select path="country" items="${countries}"/> </label></div>
     <div><label>Notes:<form:textarea path="notes" rows="4" cols="25"/></label></div>
-    <div><label>Lista mailingowa:<form:checkbox path="mailingList"/></label></div>
-    <div><label>Umiejętności programistyczne:<form:select path="programmingSkills" items="${programmingSkills}" multiple="true"/></label></div>
+    <div ><label>Lista mailingowa:<form:checkbox path="mailingList"/></label></div>
+    <div style="width: 350px; color: red">
+        <label>Umiejętności:
+            <form:select  cssStyle="width: 200px" path="programmingSkills"  multiple="true" items="${programmingSkills}"/>
+           </label></div>
     <div><label>Hobby: <form:checkboxes path="hobbies" items="${hobbies}"/></label></div>
     <div><form:button type="submit">Dodaj</form:button></div>
 </form:form>

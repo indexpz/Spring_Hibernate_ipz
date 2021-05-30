@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name="authors")
-@Getter @Setter @ToString
+@Getter @Setter @ToString(exclude="books")
 @AllArgsConstructor @NoArgsConstructor
 public class Author {
     @Id

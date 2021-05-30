@@ -15,8 +15,9 @@ public class PublisherConverter implements Converter<String, Publisher> {
     }
 
     @Override
-    public Publisher convert(String s) {
-        return null;
+    public Publisher convert(String source) {
+
+        return publisherDao.findById(Long.parseLong(source));
     }
 
 

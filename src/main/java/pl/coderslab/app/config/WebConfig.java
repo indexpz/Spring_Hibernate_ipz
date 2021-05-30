@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import pl.coderslab.app.web.converters.AuthorConverter;
+import pl.coderslab.app.web.converters.PublisherConverter;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
@@ -14,13 +16,18 @@ public class WebConfig implements WebMvcConfigurer {
         registry.jsp("/WEB-INF/views/", ".jsp");
     }
 
-//    @Override
-//    public void addFormatters(FormatterRegistry registry) {
-//        registry.addConverter(publisherConverter());
-//    }
-//
-//    @Bean
-//    public PublisherConverter publisherConverter() {
-//        return new PublisherConverter();
-//    }
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addConverter(publisherConverter());
+    }
+
+    @Bean
+    public PublisherConverter publisherConverter() {
+        return new PublisherConverter();
+    }
+
+    @Bean
+    public AuthorConverter authorConverter() {
+        return new AuthorConverter();
+    }
 }

@@ -20,7 +20,7 @@ public class CreateStudentController {
         return Arrays.asList("Poland", "Germany", "France", "Russia", "Denmark");
     }
 
-    @ModelAttribute("programmingSkillss")
+    @ModelAttribute("programmingSkills")
     public List<String> programmingSkills() {
         return Arrays.asList("Java", "C++", "PHP", "Python");
     }

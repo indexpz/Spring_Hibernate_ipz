@@ -53,12 +53,12 @@ public class DataSetup {
             bookDao.save(new Book(null, "Book1", 5, "Description1", publisher1, List.of(author1, author2)));
             bookDao.save(new Book(null, "Book2", 6, "Description2", publisher2, List.of(author2, author3)));
 
-//            logger.debug("--- Wszystkie książki:");
-//            logger.debug(bookDao.findAll().stream().map(Book::toString).collect(Collectors.joining("\n")));
-//            logger.debug("--- Dla wydawcy: " + publisher1);
-//            logger.debug(bookDao.findAllByPublisher(publisher1).stream().map(Book::toString).collect(Collectors.joining("\n")));
-//            logger.debug("--- Dla id wydawcy: " + publisher1.getId());
-//            logger.debug(bookDao.findAllByPublisher(publisher1.getId()).stream().map(Book::toString).collect(Collectors.joining("\n")));
+            logger.debug("--- Wszystkie książki:");
+            logger.debug(bookDao.findAll().stream().map(Book::toString).collect(Collectors.joining("\n")));
+            logger.debug("--- Dla wydawcy: " + publisher1);
+            logger.debug(bookDao.findAllByPublisher(publisher1).stream().map(Book::toString).collect(Collectors.joining("\n")));
+            logger.debug("--- Dla id wydawcy: " + publisher1.getId());
+            logger.debug(bookDao.findAllByPublisher(publisher1.getId()).stream().map(Book::toString).collect(Collectors.joining("\n")));
 //            logger.debug("--- Dla autora: " + author1);
 //            logger.debug(bookDao.findAllByAuthor(author1).stream().map(Book::toString).collect(Collectors.joining("\n")));
 //            logger.debug("--- Dla autora: " + author2);
