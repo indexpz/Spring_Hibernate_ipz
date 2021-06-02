@@ -27,11 +27,14 @@
         <label>Description:
             <form:textarea path="description" rows="4" cols="10"/><br/>
         </label>
-<%--            <label>Autor:--%>
-<%--                <form:select path="author" items="${allAuthors}" itemLabel="name" itemValue="id"/><br/> </label>--%>
+            <label>Autorzy:
+                <form:select path="authors" items="${allAuthors}" itemLabel="fullName" itemValue="id" multiple="true"/>
+            </label>
         <label>Wydawca:
             <form:select path="publisher" items="${allPublishers}" itemLabel="name" itemValue="id"/><br/> </label>
+<form:hidden path="id"></form:hidden>
         <form:button type="submit">Dodaj</form:button>
+
         </form:form>
 
     </table>

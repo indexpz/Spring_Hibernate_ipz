@@ -1,5 +1,6 @@
 package pl.coderslab.app.domain.dao;
 
+import org.hibernate.Hibernate;
 import org.springframework.stereotype.Repository;
 import pl.coderslab.app.domain.model.Author;
 import pl.coderslab.app.domain.model.Book;
@@ -67,5 +68,20 @@ public class BookDao {
         return em.createQuery("SELECT b FROM Book b join fetch b.authors where :author member b.authors", Book.class)
                 .setParameter("author", author)
                 .getResultList();
+    }
+
+    public Book findWithPublishersById(Long id) {
+        Book book = findById(id);
+        if (book != null) {
+            //Pobieramy z bazy danę autorów dla wskazanej książki
+            //alternatywnie możemy dostarczyć zapytanie, które pobiera książkę z autorami
+            //w jednym odpytaniu bazy
+            Hibernate.initialize(book.getAuthors());
+        }
+        return book;
+    }
+
+    public List<Book> findAllWithAuthors() {
+        return em.createQuery("SELECT DISTINCT b FROM Book b LEFT JOIN FETCH b.authors", Book.class).getResultList();
     }
 }

@@ -32,14 +32,20 @@
                 <td>${book.title}</td>
                 <td>${book.rating}</td>
                 <td>${book.description}</td>
-                <c:forEach items="${authors}" var="authors">
-
-                    <td>${authors.name}</td>
-                </c:forEach>
-
+                <td>
+                    <ul>>
+                        <c:forEach items="${book.authors}" var="author">
+                            <li>${author.fullName}</li>
+                        </c:forEach>
+                    </ul
+                </td>
                 <td>${book.publisher.name}</td>
-                <td><a href="/forms/book/edit?id=${book.id}"> <button>Edit</button></a></td>
-                <td><a href="/forms/book/delete?id=${book.id}"> <button>Delete</button></a></td>
+                <td><a href="/forms/book/edit?id=${book.id}">
+                    <button>Edit</button>
+                </a></td>
+                <td><a href="/forms/book/delete?id=${book.id}">
+                    <button>Delete</button>
+                </a></td>
             </tr>
         </c:forEach>
     </table>

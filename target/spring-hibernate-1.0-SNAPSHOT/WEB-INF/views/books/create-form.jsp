@@ -24,6 +24,8 @@
     <label>Description:
         <form:textarea path="description" rows="4" cols="10"/><br/>
     </label>
+    <label>Autorzy:
+        <form:select path="authors" items="${allAuthors}" itemLabel="fullName" itemValue="id" multiple="true"/><br/> </label>
     <label>Wydawca:
     <form:select path="publisher" items="${allPublishers}" itemLabel="name" itemValue="id"/><br/> </label>
     <form:button type="submit">Dodaj</form:button>
